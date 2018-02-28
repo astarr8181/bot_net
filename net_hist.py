@@ -26,8 +26,6 @@ df_mean = pd.DataFrame(mean_flows)
 df_med = pd.DataFrame(median_flows)
 df_mean_med_flows = pd.concat([mean_flows, median_flows], axis=1)
 df_mean_med_flows.columns = ['Date','Local_IP', 'Flows_Mean', 'Date1','IP1', 'Flows_Median']
-df_mean_med_flows.drop(['Date1', 'IP1'], axis=1)
-
-#pd.df_mean_med.to_csv(Path_to_Data)
-#print(Path_to_Data)
+df = df_mean_med_flows.drop(['Date1', 'IP1'], axis=1)
+df['Date'] = pd.to_datetime(df.Date)
 
